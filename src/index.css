@@ -4,6 +4,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Noto Sans', sans-serif;
     scroll-behavior: smooth;
+    background-color: #0e0d14;
 }
 
 #root {
