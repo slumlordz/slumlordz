@@ -1,13 +1,31 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Noto Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+    --main-red: #ff0000;
+    --dark-red: #600006;
+    --light-red: #ff1d39;
+    --main-green: #00b900;
+    --dark-green: #18220a;
+    --light-green: #cff42b;
+    --main-black: #0e0d14;
+    --main-grey: #1e232d;
+    --light-grey: #2e333d;
+    --dark-white: #c1c1c1;
+    --main-white: #e7e7e7;
+}
+
+@font-face {
+    font-family: 'Neueplak';
+    src: local('Neueplak'),
+        url('assets/fonts/neue_plak/Neue Plak Black.ttf') format('truetype');
+    src: url('assets/fonts/neue_plak/Neue Plak Regular.ttf') format('truetype'),
+        url('assets/fonts/neue_plak/Neue Plak Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
