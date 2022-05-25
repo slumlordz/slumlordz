@@ -61,11 +61,6 @@ const Menu = (props) => {
                     })}
                 </StyledDiv>
             </MenuStyled>
-            {isMobile && (
-                <Link to={'/'}>
-                    <img src={logo} />
-                </Link>
-            )}
         </MenuNav>
     );
 };

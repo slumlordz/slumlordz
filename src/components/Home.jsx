@@ -2,23 +2,60 @@ import {useState} from 'react';
 import styled from 'styled-components';
 import ObjectWrapper from './Object';
 import Roadmap from './Roadmap';
+import Carousel from './Carousel';
 import video from '../assets/Draft.mp4';
 const MainHome = styled.div`
-    background: var(--dark-green);
-    padding: 1rem;
+    padding: 5rem 1rem;
 `;
 
 const StyledHeading = styled.h1`
     font-family: Neueplak;
-    font-size: 2rem;
-    color: var(--main-red);
+    font-size: 3rem;
+
+    text-shadow: -1px 0 var(--main-red), 0 1px var(--main-red),
+        1px 0 var(--main-red), 0 -1px var(--main-red);
     text-align: center;
 `;
 const StyledP = styled.p`
+    clip-path: polygon(
+        0px 25px,
+        26px 0px,
+        calc(60% - 25px) 0px,
+        60% 25px,
+        100% 25px,
+        100% calc(100% - 10px),
+        calc(100% - 15px) calc(100% - 10px),
+        calc(80% - 10px) calc(100% - 10px),
+        calc(80% - 15px) 100%,
+        80px calc(100% - 0px),
+        65px calc(100% - 15px),
+        0% calc(100% - 15px)
+    );
+    box-shadow: inset 0 0 1px 2px #eedc00,
+        inset 0 3px 6px rgb(255 255 255 / 50%),
+        inset 0 18px 17px rgb(0 0 0 / 50%);
+
+    background: var(--main-grey);
     font-size: 1rem;
-    color: var(--dark-white);
-    text-align: center;
+    color: var(--light-green);
+    text-align: justify;
     font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    padding: 3rem;
+
+    &:before {
+        content: 'P-14';
+        display: block;
+        position: absolute;
+        bottom: -12px;
+        right: 25px;
+        padding: 2px 2px 0px 2px;
+        font-size: 0.6rem;
+        line-height: 0.6rem;
+        color: #000;
+        background-color: var(--yellow-color);
+        border-left: 2px solid var(--border-color);
+    }
 `;
 const Video = styled.video`
     width: 100%;
@@ -72,6 +109,7 @@ const HomePage = (props) => {
             </MainHome>
 
             <Roadmap />
+            <Carousel />
         </>
     );
 };

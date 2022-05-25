@@ -1,303 +1,288 @@
 import {useState} from 'react';
 import styled from 'styled-components';
-import mart from '../assets/images/24-7.png';
-import car from '../assets/images/car.png';
-import gas from '../assets/images/Gas.png';
-import shack from '../assets/images/Shack.png';
-import store from '../assets/images/store.png';
-import villa from '../assets/images/Villa.png';
-import wc from '../assets/images/Wc.png';
 
 const Section = styled.div`
     background: var(--main-black);
     padding: 1rem;
 `;
+
 const Timeline = styled.section`
     display: flex;
-    background-color: #031625;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--dark-white);
+    margin-top: -3rem;
 
-    &:hover {
-        .tl-item {
-            width: 23.3333%;
-        }
-    }
-    .tl-item {
-        transform: translate3d(0, 0, 0);
+    > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 400px;
+        max-width: 1000px;
         position: relative;
-        width: 25%;
-        height: 50vh;
-        color: #fff;
-        overflow: hidden;
-        transition: width 0.5s ease;
+        z-index: 0;
+    }
 
-        &:before,
-        &:after {
-            transform: translate3d(0, 0, 0);
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
+    .step {
+        width: 25px;
+        height: 25px;
+        border 1px solid var(--main-red);
+        background-color: var(--dark-red);       
+        position: relative;
+        border-radius: 50%;
+    }
+    .step:hover {
+        cursor: pointer;
+    }
+    .step::before,
+    .step::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        background-color: var(--main-red);
+        width: 8vw;
+        height: 2px;
+    }
 
-        &:after {
-            background: transparentize(#031625, 0.15);
+    h1, p {
+        visibility:hidden;
+        opacity:0;
+        transition:visibility 0.3s linear,opacity 0.3s linear;
+        width: 137px;
+        font-weight: bold;
+    }
+
+    .step.active {
+        h1, p, .circle, .ringring {
+            visibility: visible;
             opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        &:before {
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 1) 85%
-            );
-            z-index: 1;
-            opacity: 0;
-            transform: translate3d(0, 0, 0) translateY(50%);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        &:hover {
-            width: 30% !important;
-
-            &:after {
-                opacity: 0;
-            }
-
-            &:before {
-                opacity: 1;
-                transform: translate3d(0, 0, 0) translateY(0);
-                transition: opacity 1s ease, transform 1s ease 0.25s;
-            }
-
-            .tl-content {
-                opacity: 1;
-                transform: translateY(0);
-                transition: all 0.75s ease 0.5s;
-            }
-
-            .tl-bg {
-                filter: grayscale(0);
-            }
         }
     }
 
-    .tl-content {
-        transform: translate3d(0, 0, 0) translateY(25px);
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        margin: 0 1.618em;
-        top: 30%;
-        opacity: 0;
+    h2 {
+        top: -65px;
+        left: 16px;
+        width: 70px;
+        transform: translateX(-5px) rotateZ(-45deg);
+        font-size: 1rem;
+        color: var(--main-red);
+        position: absolute;
+        font-family: 'Neueplak';
+    }
 
+    h1 {
+        color: var(--main-green);
+        font-family: Neueplak;
+        font-weight: bold;
+        padding-top: 2rem;
+    }
+
+    .circle {
+        visibility: hidden;
+        width: 23px;
+        height: 23px;
+        background-color: var(--main-green);
+        border-radius: 50%;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+    }
+    
+    .ringring {
+        visibility: hidden;
+        border: 3px solid var(--light-green);
+        -webkit-border-radius: 30px;
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        -webkit-animation: pulsate 2s ease-out;
+        -webkit-animation-iteration-count: infinite; 
+        opacity: 0.0;
+        top: -3px;
+        left: -3px;
+    }
+
+    @keyframes pulsate {
+        0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+        50% {opacity: 1.0;}
+        100% {-webkit-transform: scale(1.5, 1.5); opacity: 0.0;}
+    }
+
+    @media (min-width: 850px) {
+        .step::before {
+            left: -40%;
+        }
+
+        .step::after {
+            right: -40%;
+        }
+    }
+
+    @media (max-width: 850px) {
+        justify-content: initial;
+        .circle, .ringring {
+            display: none;
+        }
+        > div {
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            margin-top: 10vh;
+        }
+
+        .step {
+            width: 60px;
+            height: 60px;
+            margin: 0 10px 50px;
+            background-color: var(--dark-red);
+        }
+
+        h2 {
+            display: none;
+        }
         h1 {
-            font-family: Neueplak;
-            color: var(--light-green);
-            font-size: 1.44rem;
-            font-weight: normal;
+            margin-top: -1rem;
+            margin-left: 1rem;
         }
-    }
-
-    .tl-year {
-        position: absolute;
-        top: 15%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        z-index: 1;
-        border-top: 1px solid #fff;
-        border-bottom: 1px solid #fff;
-
         p {
-            font-family: 'Noto Sans', sans-serif;
-            font-size: 1.728rem;
-            line-height: 0;
-            color: var(--dark-white);
+            margin-top: 2rem;
+            position: absolute;
+            z-index: 5;
+            background: var(--main-black);
         }
-    }
-
-    .tl-bg {
-        transform: translate3d(0, 0, 0);
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        transition: filter 0.5s ease;
-        filter: grayscale(70%);
+        .step::before,
+        .step::after {
+            content: none;
+        }
     }
 `;
 const StyledHeading = styled.h1`
     font-family: Neueplak;
-    font-size: 2rem;
-    color: var(--main-red);
+    font-size: 3rem;
+    text-shadow: -1px 0 var(--main-red), 0 1px var(--main-red),
+        1px 0 var(--main-red), 0 -1px var(--main-red);
     text-align: center;
 `;
 const Roadmap = () => {
+    const [index, setIndex] = useState(0);
+
+    const handleClick = (i) => {
+        setIndex(i);
+    };
+
     return (
         <Section>
             <StyledHeading>ROADMAP</StyledHeading>
 
             <Timeline>
-                <div className='tl-item'>
+                <div>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${car})`}}
-                    ></div>
+                        onClick={() => handleClick(1)}
+                        className={`step ${1 === index ? 'active' : null}`}
+                    >
+                        <h2> Community </h2>
 
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>1</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1>Community</h1>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>01</h1>
                         <p>
                             Lay the foundation of a strong and engaged community
                         </p>
                     </div>
-                </div>
-
-                <div className='tl-item'>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${mart})`}}
-                    ></div>
+                        onClick={() => handleClick(2)}
+                        className={`step ${2 === index ? 'active' : null}`}
+                    >
+                        <h2> Mint </h2>
 
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>2</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>Mint</h1>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>02</h1>
                         <p>Mint 8,888 unique Slumlordz' block NFTs</p>
                     </div>
-                </div>
-
-                <div className='tl-item'>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${villa})`}}
-                    ></div>
-
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>3</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>Launch p2e game</h1>
+                        onClick={() => handleClick(3)}
+                        className={`step ${3 === index ? 'active' : null}`}
+                    >
+                        <h2> Staking </h2>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>03</h1>
                         <p>
-                            Launch the Slumlordz' play-to-earn game with the
-                            following features: Block NFT staking, which yields
-                            $SLUM; Block customization and upgradability;
-                            Renovate buildings; Purchase new buildings at the
-                            Slum Queen's Black Market; District Battles
+                            Launch P2E game, Block NFT staking, which yields
+                            $SLUM; Renovate buildings; Purchase new buildings;
+                            District Battles
                         </p>
                     </div>
-                </div>
-
-                <div className='tl-item'>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${gas})`}}
-                    ></div>
-
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>4</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>
-                            Slum Queen's Raffle
-                        </h1>
+                        onClick={() => handleClick(4)}
+                        className={`step ${4 === index ? 'active' : null}`}
+                    >
+                        <h2> Raffles </h2>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>04</h1>
                         <p>
-                            Our holders will have the opportunity to purchase
-                            raffle tickets with $SLUM in order to win prizes,
-                            such as Blue Chip NFTs, Slumlordz' Merchandise and
-                            Physical Art
+                            Raffle with $SLUM for Blue Chip NFTs, WL spots and
+                            other rewards
                         </p>
                     </div>
-                </div>
-                <div className='tl-item'>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${wc})`}}
-                    ></div>
-
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>5</p>
+                        onClick={() => handleClick(5)}
+                        className={`step ${5 === index ? 'active' : null}`}
+                    >
+                        <h2> Tokenomics </h2>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>05</h1>
+                        <p>SLUM/SOL pair on Raydium</p>
                     </div>
+                    <div
+                        onClick={() => handleClick(6)}
+                        className={`step ${6 === index ? 'active' : null}`}
+                    >
+                        <h2> PFP </h2>
 
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>
-                            SLUM/SOL pair on Raydium
-                        </h1>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>06</h1>
                         <p>
-                            For purchasing raffle tickets and new pfp collection
+                            Slumlordz PFP collection launch, minted with $SLUM
                         </p>
                     </div>
-                </div>
-                <div className='tl-item'>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${store})`}}
-                    ></div>
+                        onClick={() => handleClick(7)}
+                        className={`step ${7 === index ? 'active' : null}`}
+                    >
+                        <h2> PFP Utility </h2>
 
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>6</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>
-                            Slumlordz PFP collection
-                        </h1>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>07</h1>
                         <p>
-                            Slumlordz PFP NFT collection - Slumlords - will be
-                            released, which you will be able to mint using $SLUM
+                            Reveal utility for Slumlord NFTs, which will
+                            generate extra rewards
                         </p>
                     </div>
-                </div>
-                <div className='tl-item'>
                     <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${shack})`}}
-                    ></div>
+                        onClick={() => handleClick(8)}
+                        className={`step ${8 === index ? 'active' : null}`}
+                    >
+                        <h2> DAO </h2>
 
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>7</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>
-                            Staking your PFP
-                        </h1>
+                        <div class='ringring'></div>
+                        <div class='circle'></div>
+                        <h1>08</h1>
                         <p>
-                            Integrate staking capacity for Slumlord NFTs, which
-                            will generate extra rewards, capabilities and
-                            utility access.
-                        </p>
-                    </div>
-                </div>
-                <div className='tl-item'>
-                    <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${gas})`}}
-                    ></div>
-
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>8</p>
-                    </div>
-
-                    <div className='tl-content'>
-                        <h1 className='f3 text--accent ttu'>DAO</h1>
-                        <p>
-                            Collaborative Pre-Sale(Whitelist) Opportunities; NFT
-                            Research provision; High Value Networking
-                            Opportunities
+                            WL Opportunities; NFT Research; High Value
+                            Networking Opportunities
                         </p>
                     </div>
                 </div>
