@@ -57,7 +57,7 @@ const MenuNav = styled.nav`
     }
     min-height: 80px;
     font-size: 12px;
-    background-color: var(--main-black);
+    background-color: black;
 
     .logo-mobile {
         width: 140px;
@@ -139,7 +139,7 @@ const MenuStyled = styled.div`
         top: 0;
         left: 0;
         padding: 50px;
-        background-color: var(--main-black);
+        background-color: black;
         transform-origin: 0% 0%;
         transform: translate(-110%, 0);
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
