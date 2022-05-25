@@ -78,7 +78,7 @@ const HomePage = (props) => {
 
     return (
         <>
-            <Video autoPlay loop src={video}></Video>
+            <Video autoPlay loop muted src={video}></Video>
 
             {/* <ObjectWrapper /> */}
             <MainHome>
