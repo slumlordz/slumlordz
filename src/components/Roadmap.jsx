@@ -73,7 +73,7 @@ const Timeline = styled.section`
         font-size: 1rem;
         color: var(--main-red);
         position: absolute;
-        font-family: 'Neueplak';
+        font-family: 'JetBrains Mono', monospace;
     }
 
     h1 {
@@ -116,11 +116,11 @@ const Timeline = styled.section`
 
     @media (min-width: 850px) {
         .step::before {
-            left: -40%;
+            left: -10%;
         }
 
         .step::after {
-            right: -40%;
+            right: -10%;
         }
     }
 
@@ -156,6 +156,8 @@ const Timeline = styled.section`
             position: absolute;
             z-index: 5;
             background: var(--main-black);
+            font-family: 'JetBrains Mono', monospace;
+
         }
         .step::before,
         .step::after {
@@ -171,7 +173,7 @@ const StyledHeading = styled.h1`
     text-align: center;
 `;
 const Roadmap = () => {
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(1);
 
     const handleClick = (i) => {
         setIndex(i);

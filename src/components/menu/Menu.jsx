@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import twitter from '../../assets/images/twitter.png';
 import discord from '../../assets/images/discord.png';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo1.png';
 
 import MenuStyled, {
     MenuNav,
@@ -51,7 +51,7 @@ const Menu = (props) => {
             <MenuStyled isMobile={isMobile} className={toggleClass}>
                 <StyledDiv>
                     <Link to={'/'}>
-                        <img style={{maxWidth: '200px'}} src={logo} />
+                        <img className='logo' src={logo} />
                     </Link>
                 </StyledDiv>
                 <StyledDiv>

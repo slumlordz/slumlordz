@@ -10,7 +10,7 @@ import wc from '../assets/images/Wc.png';
 
 const Section = styled.div`
     background: var(--main-black);
-    padding: 8rem 1rem;
+    padding: 8rem 1rem 1rem;
 
     h3 {
         color: var(--dark-white);
@@ -24,6 +24,7 @@ const Carousel = styled.section`
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    margin: auto;
 
     &::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -44,10 +45,11 @@ const Carousel = styled.section`
         min-width: 300px;
         height: 40vh;
         color: #fff;
+        margin: 2rem;
 
         &:hover {
             transition: all 300ms linear;
-            transform: scale(1.2);
+            transform: scale(1.1);
 
             &:after {
                 opacity: 0;
@@ -68,7 +70,7 @@ const Carousel = styled.section`
         border-bottom: 1px solid var(--light-green);
 
         p {
-            font-family: 'Noto Sans', sans-serif;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 1.2rem;
             line-height: 0;
             color: var(--dark-white);
@@ -108,7 +110,7 @@ const Roadmap = () => {
                     ></div>
 
                     <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>Car repair</p>
+                        <p className='f2 heading--sanSerif'>Chop Shop</p>
                     </div>
                 </div>
 
@@ -119,7 +121,7 @@ const Roadmap = () => {
                     ></div>
 
                     <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>Mini mart</p>
+                        <p className='f2 heading--sanSerif'>Mini Mart</p>
                     </div>
                 </div>
 
@@ -141,7 +143,7 @@ const Roadmap = () => {
                     ></div>
 
                     <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>Gas station</p>
+                        <p className='f2 heading--sanSerif'>Gas Station</p>
                     </div>
                 </div>
                 <div className='tl-item'>
@@ -151,19 +153,10 @@ const Roadmap = () => {
                     ></div>
 
                     <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>WC Fast food</p>
+                        <p className='f2 heading--sanSerif'> Fast Food</p>
                     </div>
                 </div>
-                <div className='tl-item'>
-                    <div
-                        className='tl-bg'
-                        style={{backgroundImage: `url(${store})`}}
-                    ></div>
 
-                    <div className='tl-year'>
-                        <p className='f2 heading--sanSerif'>Store</p>
-                    </div>
-                </div>
                 <div className='tl-item'>
                     <div
                         className='tl-bg'
@@ -176,7 +169,7 @@ const Roadmap = () => {
                 </div>
             </Carousel>
 
-            <h3>2022 Slumlordz - All rights reserved</h3>
+            <h3> © 2022 Slumlordz - All rights reserved</h3>
         </Section>
     );
 };

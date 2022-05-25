@@ -73,19 +73,19 @@ const MenuItem = styled.div(
             text-decoration: none;
             color: #f2f2f2;
             display: block;
-            padding: 1rem;
+            margin: 0 1rem;
+            font-family: Neueplak;
+            color: var(--dark-white);
         }
         a.active {
             border-bottom: 1px solid var(--light-green);
-            color: #17feff;
         }
         a:hover:not(img) {
             border-bottom: 1px solid var(--light-green);
-            color: #17feff;
         }
         img {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
         }
     `
@@ -121,8 +121,8 @@ const StakeButton = styled.div`
             cursor: not-allowed;
         }
         img {
-            width: 20px;
-            height: 20px;
+            width: 15px;
+            height: 15px;
             display: block;
             margin: 0;
         }
@@ -161,10 +161,9 @@ const MenuStyled = styled.div`
     z-index: 8;
 
     .logo {
-        width: 140px;
+        width: 90px;
         height: auto;
-        margin: 0.2rem 1rem;
-        box-shadow: 0px 0px 2px 2px white;
+        margin: 1rem 0;
     }
 `;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ObjectWrapper from './Object';
 import Roadmap from './Roadmap';
 import Carousel from './Carousel';
-import video from '../assets/Draft.mp4';
+import video from '../assets/QUEEN.mp4';
 const MainHome = styled.div`
     padding: 5rem 1rem;
 `;
@@ -39,10 +39,11 @@ const StyledP = styled.p`
     font-size: 1rem;
     color: var(--light-green);
     text-align: justify;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     font-weight: bold;
     padding: 3rem;
-
+    max-width: 850px;
+    margin: auto;
     &:before {
         content: 'P-14';
         display: block;
