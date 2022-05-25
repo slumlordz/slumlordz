@@ -161,9 +161,8 @@ const MenuStyled = styled.div`
     z-index: 8;
 
     .logo {
-        width: 90px;
+        width: 140px;
         height: auto;
-        margin: 1rem 0;
     }
 `;
 

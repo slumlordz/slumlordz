@@ -77,7 +77,7 @@ const ObjectWrapper = () => {
 
         const loader = new OBJLoader(manager);
         loader.load(
-            '../models/obj/ninja/ninjaHead_Low.obj',
+            '../models/obj/charecter.obj',
             function (obj) {
                 object = obj;
             },
