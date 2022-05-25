@@ -263,7 +263,7 @@ const Roadmap = () => {
                         onClick={() => handleClick(7)}
                         className={`step ${7 === index ? 'active' : null}`}
                     >
-                        <h2> PFP Utility </h2>
+                        <h2>Utility </h2>
 
                         <div class='ringring'></div>
                         <div class='circle'></div>
