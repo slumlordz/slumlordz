@@ -30,7 +30,7 @@ const Timeline = styled.section`
     .step {
         width: 25px;
         height: 25px;
-        border 1px solid var(--main-red);
+        border 1px solid var(--dark-red);
         background-color: var(--dark-red);       
         position: relative;
         border-radius: 50%;
@@ -45,7 +45,7 @@ const Timeline = styled.section`
         position: absolute;
         z-index: -1;
         top: 50%;
-        background-color: var(--main-red);
+        background-color: var(--dark-red);
         width: 8vw;
         height: 2px;
     }
@@ -71,7 +71,7 @@ const Timeline = styled.section`
         width: 70px;
         transform: translateX(-5px) rotateZ(-45deg);
         font-size: 1rem;
-        color: var(--main-red);
+        color: var(--dark-white);
         position: absolute;
         font-family: 'JetBrains Mono', monospace;
     }
@@ -87,7 +87,7 @@ const Timeline = styled.section`
         visibility: hidden;
         width: 23px;
         height: 23px;
-        background-color: var(--main-green);
+        background-color: var(--dark-green);
         border-radius: 50%;
         position: absolute;
         top: 1px;
@@ -96,7 +96,7 @@ const Timeline = styled.section`
     
     .ringring {
         visibility: hidden;
-        border: 3px solid var(--light-green);
+        border: 3px solid var(--main-green);
         -webkit-border-radius: 30px;
         height: 25px;
         width: 25px;
@@ -113,7 +113,7 @@ const Timeline = styled.section`
         50% {opacity: 1.0;}
         100% {-webkit-transform: scale(1.5, 1.5); opacity: 0.0;}
     }
-
+   
     @media (min-width: 850px) {
         .step::before {
             left: -10%;
@@ -166,10 +166,11 @@ const Timeline = styled.section`
     }
 `;
 const StyledHeading = styled.h1`
-    font-family: Neueplak;
+    font-family: 'Neueplak', sans-serif;
     font-size: 3rem;
-    text-shadow: -1px 0 var(--main-red), 0 1px var(--main-red),
-        1px 0 var(--main-red), 0 -1px var(--main-red);
+    text-shadow: 0 0 6px var(--dark-red), 0 0 8px var(--main-red),
+        0 0 0px var(--dark-red), 0 0 3px var(--main-red),
+        0 0 7px var(--dark-red), 0 0 4px var(--main-red);
     text-align: center;
 `;
 const Roadmap = () => {

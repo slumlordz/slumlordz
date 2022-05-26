@@ -12,8 +12,9 @@ const StyledHeading = styled.h1`
     font-family: Neueplak;
     font-size: 3rem;
 
-    text-shadow: -1px 0 var(--main-red), 0 1px var(--main-red),
-        1px 0 var(--main-red), 0 -1px var(--main-red);
+    text-shadow: 0 0 6px var(--dark-red), 0 0 8px var(--main-red),
+        0 0 0px var(--dark-red), 0 0 3px var(--main-red),
+        0 0 7px var(--dark-red), 0 0 4px var(--main-red);
     text-align: center;
 `;
 const StyledP = styled.p`
@@ -31,13 +32,13 @@ const StyledP = styled.p`
         65px calc(100% - 15px),
         0% calc(100% - 15px)
     );
-    box-shadow: inset 0 0 1px 2px #eedc00,
-        inset 0 3px 6px rgb(255 255 255 / 50%),
-        inset 0 18px 17px rgb(0 0 0 / 50%);
+    box-shadow: inset 0 -1px 1px 1px var(--light-green),
+        inset 0 3px 16px var(--light-green),
+        inset 0 -2px 25px var(--light-green);
 
     background: var(--main-grey);
     font-size: 1rem;
-    color: var(--light-green);
+    color: var(--dark-white);
     text-align: justify;
     font-family: 'JetBrains Mono', monospace;
     font-weight: bold;
