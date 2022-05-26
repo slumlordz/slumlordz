@@ -32,9 +32,8 @@ const StyledP = styled.p`
         65px calc(100% - 15px),
         0% calc(100% - 15px)
     );
-    box-shadow: inset 0 -1px 1px 1px var(--light-green),
-        inset 0 3px 16px var(--light-green),
-        inset 0 -2px 25px var(--light-green);
+    box-shadow: inset 0 -1px 1px 1px var(--main-green),
+        inset 0 3px 16px var(--main-green), inset 0 -2px 25px var(--main-green);
 
     background: var(--main-grey);
     font-size: 1rem;
@@ -81,7 +80,7 @@ const HomePage = (props) => {
         <>
             <Video autoPlay loop muted src={video}></Video>
 
-            {/* <ObjectWrapper /> */}
+            <ObjectWrapper />
             <MainHome>
                 <StyledHeading>LORE</StyledHeading>
                 <StyledP>
