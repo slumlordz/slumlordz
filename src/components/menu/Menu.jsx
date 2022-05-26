@@ -22,7 +22,7 @@ const items = [
     },
     {
         content: (
-            <a href='https://discord.gg/2c65j9zM' target={'_blank'}>
+            <a href='https://discord.gg/rSSwXKFpUK' target={'_blank'}>
                 <img alt='' src={discord} />
             </a>
         ),
