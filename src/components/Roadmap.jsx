@@ -54,7 +54,7 @@ const Timeline = styled.section`
         visibility:hidden;
         opacity:0;
         transition:visibility 0.3s linear,opacity 0.3s linear;
-        width: 137px;
+        width: 200px;
         font-weight: bold;
     }
 
@@ -142,6 +142,7 @@ const Timeline = styled.section`
             height: 60px;
             margin: 0 10px 50px;
             background-color: var(--dark-red);
+            position: unset;
         }
 
         h2 {
@@ -150,6 +151,7 @@ const Timeline = styled.section`
         h1 {
             margin-top: -1rem;
             margin-left: 1rem;
+            width: 100%;
         }
         p {
             margin-top: 2rem;
@@ -157,7 +159,13 @@ const Timeline = styled.section`
             z-index: 5;
             background: var(--main-black);
             font-family: 'JetBrains Mono', monospace;
-
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            top: 100%;
+            right: 0;
+            bottom: 0;
+            width: 80%;
         }
         .step::before,
         .step::after {
@@ -195,9 +203,7 @@ const Roadmap = () => {
                         <div class='ringring'></div>
                         <div class='circle'></div>
                         <h1>01</h1>
-                        <p>
-                            Lay the foundation of a strong and engaged community
-                        </p>
+                        <p>Build a strong and engaged community</p>
                     </div>
                     <div
                         onClick={() => handleClick(2)}
@@ -208,7 +214,7 @@ const Roadmap = () => {
                         <div class='ringring'></div>
                         <div class='circle'></div>
                         <h1>02</h1>
-                        <p>Mint 8,888 unique Slumlordz' block NFTs</p>
+                        <p>Mint 8,888 unique Slumlordz’ block NFTs</p>
                     </div>
                     <div
                         onClick={() => handleClick(3)}
@@ -219,9 +225,14 @@ const Roadmap = () => {
                         <div class='circle'></div>
                         <h1>03</h1>
                         <p>
-                            Launch P2E game, Block NFT staking, which yields
-                            $SLUM; Renovate buildings; Purchase new buildings;
-                            District Battles
+                            Launch P2E Game
+                            <br />
+                            • Block NFT Staking
+                            <br />
+                            • Building Decay
+                            <br />
+                            • Building Repair
+                            <br />• Black Market Purchases
                         </p>
                     </div>
                     <div
@@ -233,15 +244,15 @@ const Roadmap = () => {
                         <div class='circle'></div>
                         <h1>04</h1>
                         <p>
-                            Raffle with $SLUM for Blue Chip NFTs, WL spots and
-                            other rewards
+                            $SLUM Raffle <br />• Blue Chip NFTs <br />•
+                            Whitelist Spots <br />• Slumlordz’ Assets
                         </p>
                     </div>
                     <div
                         onClick={() => handleClick(5)}
                         className={`step ${5 === index ? 'active' : null}`}
                     >
-                        <h2> Tokenomics </h2>
+                        <h2> Sustainability </h2>
                         <div class='ringring'></div>
                         <div class='circle'></div>
                         <h1>05</h1>
@@ -257,22 +268,20 @@ const Roadmap = () => {
                         <div class='circle'></div>
                         <h1>06</h1>
                         <p>
-                            Slumlordz PFP collection launch, minted with $SLUM
+                            Launch Slumlordz’ PFP Collection
+                            <br /> Exclusive SLUM mint
                         </p>
                     </div>
                     <div
                         onClick={() => handleClick(7)}
                         className={`step ${7 === index ? 'active' : null}`}
                     >
-                        <h2>Utility </h2>
+                        <h2>PFP Utility</h2>
 
                         <div class='ringring'></div>
                         <div class='circle'></div>
                         <h1>07</h1>
-                        <p>
-                            Reveal utility for Slumlord NFTs, which will
-                            generate extra rewards
-                        </p>
+                        <p>Integrate exclusive Slumlord NFT utility</p>
                     </div>
                     <div
                         onClick={() => handleClick(8)}
@@ -284,8 +293,8 @@ const Roadmap = () => {
                         <div class='circle'></div>
                         <h1>08</h1>
                         <p>
-                            WL Opportunities; NFT Research; High Value
-                            Networking Opportunities
+                            • Exclusive Whitelists <br />• NFT Research
+                            <br /> • Networking Opportunities
                         </p>
                     </div>
                 </div>

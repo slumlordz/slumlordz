@@ -80,7 +80,7 @@ const HomePage = (props) => {
         <>
             <Video autoPlay loop muted src={video}></Video>
 
-            <ObjectWrapper />
+            {/* <ObjectWrapper /> */}
             <MainHome>
                 <StyledHeading>LORE</StyledHeading>
                 <StyledP>

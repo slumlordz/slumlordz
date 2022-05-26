@@ -3,130 +3,40 @@ import * as THREE from 'three';
 import {OBJLoader} from '../loaders/OBJLoader.js';
 
 const ObjectWrapper = () => {
-    let container;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
 
-    let camera, scene, renderer;
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-    let mouseX = 0,
-        mouseY = 0;
+    camera.position.z = 5;
+    const loader = new OBJLoader();
 
-    let windowHalfX = window.innerWidth / 2;
-    let windowHalfY = window.innerHeight / 2;
-
-    let object;
-
-    init();
-    animate();
-
-    function init() {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-
-        camera = new THREE.PerspectiveCamera(
-            45,
-            window.innerWidth / window.innerHeight,
-            1,
-            2000
-        );
-        camera.position.z = 250;
-
-        // scene
-
-        scene = new THREE.Scene();
-
-        const ambientLight = new THREE.AmbientLight(0xcccccc, 0.4);
-        scene.add(ambientLight);
-
-        const pointLight = new THREE.PointLight(0xffffff, 0.8);
-        camera.add(pointLight);
-        scene.add(camera);
-
-        // manager
-
-        function loadModel() {
-            console.log(object);
-            if (object) {
-                object.traverse(function (child) {
-                    if (child.isMesh) child.material.map = texture;
-                });
-
-                object.position.y = -95;
-                scene.add(object);
-            }
+    loader.load(
+        'src/models/Queen.obj',
+        function (object) {
+            scene.add(object);
+        },
+        function (xhr) {
+            console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        },
+        function (error) {
+            console.log('An error happened');
         }
+    );
 
-        const manager = new THREE.LoadingManager(loadModel);
-
-        // texture
-
-        const textureLoader = new THREE.TextureLoader(manager);
-        const texture = textureLoader.load('../textures/uv_grid_opengl.jpg');
-
-        // model
-
-        function onProgress(xhr) {
-            if (xhr.lengthComputable) {
-                const percentComplete = (xhr.loaded / xhr.total) * 100;
-                console.log(
-                    'model ' + Math.round(percentComplete, 2) + '% downloaded'
-                );
-            }
-        }
-
-        function onError() {}
-
-        const loader = new OBJLoader(manager);
-        loader.load(
-            '../models/obj/charecter.obj',
-            function (obj) {
-                object = obj;
-            },
-            onProgress,
-            onError
-        );
-
-        renderer = new THREE.WebGLRenderer();
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer.domElement);
-
-        document.addEventListener('mousemove', onDocumentMouseMove);
-
-        //
-
-        window.addEventListener('resize', onWindowResize);
-    }
-
-    function onWindowResize() {
-        windowHalfX = window.innerWidth / 2;
-        windowHalfY = window.innerHeight / 2;
-
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-
-    function onDocumentMouseMove(event) {
-        mouseX = (event.clientX - windowHalfX) / 2;
-        mouseY = (event.clientY - windowHalfY) / 2;
-    }
-
-    //
-
-    function animate() {
+    var animate = function () {
         requestAnimationFrame(animate);
-        render();
-    }
-
-    function render() {
-        camera.position.x += (mouseX - camera.position.x) * 0.05;
-        camera.position.y += (-mouseY - camera.position.y) * 0.05;
-
-        camera.lookAt(scene.position);
-
         renderer.render(scene, camera);
-    }
+    };
+
+    animate();
 };
 
 export default ObjectWrapper;
