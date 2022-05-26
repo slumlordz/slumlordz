@@ -4,6 +4,8 @@ import ObjectWrapper from './Object';
 import Roadmap from './Roadmap';
 import Carousel from './Carousel';
 import video from '../assets/QUEEN.mp4';
+import img from '../assets/images/queen.png';
+
 const MainHome = styled.div`
     padding: 5rem 1rem;
 `;
@@ -79,7 +81,7 @@ const HomePage = (props) => {
     return (
         <>
             <Video autoPlay loop muted src={video}></Video>
-
+            <img src={img} style={{display: 'none'}} />
             {/* <ObjectWrapper /> */}
             <MainHome>
                 <StyledHeading>LORE</StyledHeading>
