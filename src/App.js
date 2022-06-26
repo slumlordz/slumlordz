@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import Home from './components/Home';
 import Menu from './components/menu/Menu';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -26,8 +27,20 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 // });
 
 // const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
+const load = (callback) => {
+    const script = document.createElement('script');
+    script.src = '../src/assets/scripts/experiment.js';
+    script.id = 'three';
+    script.type = 'application/javascript';
+    script.async = true;
+    document.body.appendChild(script);
+};
 
 const App = () => {
+    useEffect(() => {
+        load();
+    }, []);
+
     const useDeviceDetect = () => {
         const userAgent =
             typeof window.navigator === 'undefined' ? '' : navigator.userAgent;

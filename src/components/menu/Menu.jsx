@@ -15,6 +15,13 @@ import MenuStyled, {
 const items = [
     {
         content: (
+            <a href='https://docs.slumlordz.club/introduction/overview' target={'_blank'}>
+                Docs
+            </a>
+        ),
+    },
+    {
+        content: (
             <a href='https://twitter.com/Slumlordz_NFT' target={'_blank'}>
                 <img alt='' src={twitter} />
             </a>

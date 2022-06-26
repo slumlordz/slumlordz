@@ -4,31 +4,67 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Noto Sans', sans-serif;
     scroll-behavior: smooth;
-    background-color: #0e0d14;
+    background: url('assets/images/banner.png');
+    background-repeat-x: no-repeat;
+    background-size: 100%;
+    background-position-y: 80%;
 }
 
 #root {
-    --main-red: #ff0000;
-    --dark-red: #600006;
-    --light-red: #ff1d39;
-    --main-green: #00b900;
-    --dark-green: #18220a;
-    --light-green: #cff42b;
-    --main-black: #0e0d14;
-    --main-grey: #1e232d;
-    --light-grey: #2e333d;
-    --dark-white: #c1c1c1;
-    --main-white: #e7e7e7;
+    --red: #b41c1a;
+    --dark-red: #420c01;
+    --black: #202818;
+    --grey: #929195;
+    --dark-grey: #5c585f;
+    --white: #ede7e0;
+    --beige: #cbb79c;
+    --brown: #83674f;
+    --dark-brown: #564132;
+    --green: #7dae73;
+    --dark-green: #47773a;
+    --pink: #ac62b9;
+    --neon-green: #52c79d;
+    --peach: #ff95a3;
+
+    touch-action: pan-up;
+    overflow-x: hidden;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: grab;
 }
 
 @font-face {
-    font-family: 'Neueplak';
-    src: local('Neueplak'),
-        url('assets/fonts/neue_plak/Neue Plak Black.ttf') format('truetype');
-    src: url('assets/fonts/neue_plak/Neue Plak Regular.ttf') format('truetype'),
-        url('assets/fonts/neue_plak/Neue Plak Light.ttf') format('truetype');
+    font-family: 'Code';
+    src: local('Code'), url('assets/fonts/Code.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Code Italic';
+    src: local('Code'),
+        url('assets/fonts/Code\ ExtraBold\ Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PoliteType';
+    src: local('PoliteType'),
+        url('assets/fonts/PoliteType-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Shrimp';
+    src: local('Shrimp'), url('assets/fonts/SHRIMP.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

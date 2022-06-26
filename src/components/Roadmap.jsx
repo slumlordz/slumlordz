@@ -2,7 +2,6 @@ import {useState} from 'react';
 import styled from 'styled-components';
 
 const Section = styled.div`
-    background: var(--main-black);
     padding: 1rem;
 `;
 
@@ -73,12 +72,12 @@ const Timeline = styled.section`
         font-size: 1rem;
         color: var(--dark-white);
         position: absolute;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: 'Exo', sans-serif;
     }
 
     h1 {
         color: var(--main-green);
-        font-family: Neueplak;
+        font-family: 'Iceland';
         font-weight: bold;
         padding-top: 2rem;
     }
@@ -158,7 +157,7 @@ const Timeline = styled.section`
             position: absolute;
             z-index: 5;
             background: var(--main-black);
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'Exo', sans-serif;
             margin-left: auto;
             margin-right: auto;
             left: 0;
@@ -174,7 +173,7 @@ const Timeline = styled.section`
     }
 `;
 const StyledHeading = styled.h1`
-    font-family: 'Neueplak', sans-serif;
+    font-family: 'Iceland', sans-serif;
     font-size: 3rem;
     text-shadow: 0 0 6px var(--dark-red), 0 0 8px var(--main-red),
         0 0 0px var(--dark-red), 0 0 3px var(--main-red),
