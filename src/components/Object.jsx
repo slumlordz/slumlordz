@@ -1,6 +1,3 @@
-import * as THREE from 'https://cdn.skypack.dev/three@0.125.0';
-import gsap from 'https://cdn.skypack.dev/gsap@3.5.1';
-
 import styled from 'styled-components';
 
 const Page = styled.div`
