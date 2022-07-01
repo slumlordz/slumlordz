@@ -47,7 +47,7 @@ const Splash = styled.div`
 
     .stage {
         overflow: hidden;
-        height: 100%;
+        height: 50%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -59,7 +59,7 @@ const Splash = styled.div`
         width: 300px;
         height: 400px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0);
         position: absolute;
     }
 `;
