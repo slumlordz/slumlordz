@@ -12,7 +12,6 @@ import butcher from '../assets/images/butcher.png';
 import gas from '../assets/images/Gas.png';
 import car from '../assets/images/car.png';
 import store from '../assets/images/store.png';
-import {ObjectWrapper} from './Object';
 import {useEffect} from 'react';
 
 const images = [

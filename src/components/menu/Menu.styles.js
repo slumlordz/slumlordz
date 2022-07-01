@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components';
-
+import time from '../../assets/images/time-t.png';
 const MenuTrigger = styled.div`
     @media screen and (min-width: 601px) {
         display: none;
@@ -7,20 +7,22 @@ const MenuTrigger = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 25px;
-    left: 25px;
+    right: 1rem;
+    border-radius: 50%;
     z-index: 10;
-    -webkit-user-select: none;
-    user-select: none;
-    text-align: center;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: var(--brown);
     span {
         display: flex;
-        width: 29px;
-        height: 2px;
+        width: 30px;
+        height: 4px;
         margin-bottom: 5px;
         position: relative;
-        background: var(--green);
-        border-radius: 3px;
+        background: var(--black);
+        border-radius: 10px 0 10px 0;
         z-index: 1;
         transform-origin: 5px 0px;
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
@@ -32,18 +34,21 @@ const MenuTrigger = styled.div`
     span:nth-last-child(2) {
         transform-origin: 0% 100%;
     }
+    span:last-child {
+        margin-bottom: 0;
+    }
     &.toggled {
         span {
             opacity: 1;
-            transform: rotate(45deg) translate(-3px, -1px);
-            background: var(--red);
+            transform: rotate(42deg) translate(-3px, -2px);
+            background: var(--dark-red);
         }
         span:nth-last-child(3) {
             opacity: 0;
             transform: rotate(0deg) scale(0.1, 0.1);
         }
         span:nth-last-child(2) {
-            transform: rotate(-45deg) translate(0, -1px);
+            transform: rotate(-42deg) translate(0, -2px);
         }
     }
 `;
@@ -57,8 +62,8 @@ const MenuNav = styled.nav`
     }
     min-height: 80px;
     font-size: 12px;
-    padding-top: 20px;
-
+    margin-top: 20px;
+    background: var(--beige);
     .logo-mobile {
         width: 140px;
         height: auto;
@@ -68,27 +73,41 @@ const MenuNav = styled.nav`
 
 const MenuItem = styled.div(
     css`
-        text-align: left;
-        a {
+        margin: 0 1rem;
+        font-size: 1rem;
+        font-family: Code;
+        text-transform: uppercase;
+        a.button {
             text-decoration: none;
-            color: #f2f2f2;
-            display: block;
-            margin: 0 1rem;
-            font-size: 1rem;
-            font-family: Code;
-            text-transform: uppercase;
+            box-sizing: border-box;
+            padding: 0.4rem;
             color: var(--dark-red);
-        }
-        a.active {
-            border-bottom: 1px solid var(--red);
-        }
-        a:hover:not(img) {
-            border-bottom: 1px solid var(--red);
+            border: 0 solid;
+            outline: 1px solid;
+            outline-color: var(--brown);
+            outline-offset: 0px;
+            text-shadow: none;
+            transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+            background-color: var(--beige);
+            &:hover {
+                border: 1px solid;
+                background-color: var(--brown);
+                outline-color: rgba(255, 255, 255, 0);
+                outline-offset: 15px;
+            }
         }
         img {
             width: 43px;
-            height: 30px;
+            height: auto;
             cursor: pointer;
+        }
+        @media screen and (max-width: 600px) {
+            font-size: 2rem;
+            padding: 1rem;
+
+            img {
+                width: 65px;
+            }
         }
     `
 );
@@ -132,16 +151,21 @@ const StakeButton = styled.div`
 const MenuStyled = styled.div`
     @media screen and (max-width: 600px) {
         position: absolute;
-        display: block;
-        width: auto;
-        height: auto;
-        box-shadow: 0 0 10px var(--green);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         top: 0;
-        left: 0;
-        padding: 50px;
+        width: 100%;
+        height: 100%;
         transform-origin: 0% 0%;
-        transform: translate(-110%, 0);
+        transform: translate(100%, 0);
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+        background-image: url(${time});
+        background-size: auto;
+        background-position: center 64%;
+        background-color: var(--brown);
+        text-align: center;
         div {
             display: block;
         }
@@ -158,7 +182,6 @@ const MenuStyled = styled.div`
     justify-content: space-between;
     padding: 0 10px;
     z-index: 8;
-    background: var(--beige);
 
     .logo {
         width: 140px;

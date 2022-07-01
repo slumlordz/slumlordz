@@ -1,198 +1,214 @@
 import {useState} from 'react';
 import styled from 'styled-components';
+import block from '../assets/images/block.png';
+import cork from '../assets/images/cork.jpeg';
+import sketch1 from '../assets/images/sketch1.jpg';
+import sketch2 from '../assets/images/sketch2.jpg';
+import sketch3 from '../assets/images/sketch3.jpg';
+import sketch4 from '../assets/images/sketch4.jpg';
+import sketch5 from '../assets/images/sketch5.jpg';
+import sketch6 from '../assets/images/sketch6.jpg';
 
 const Section = styled.div`
-    padding: 1rem;
+    padding: 4rem;
+    height: 100vh;
+    background: var(--beige);
 `;
 
-const Timeline = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+const Timeline = styled.div`
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 1rem;
     align-items: center;
+    margin: auto;
+    background-image: url(${cork});
+    background-color: var(--dark-brown);
+    background-blend-mode: multiply;
+`;
+
+const Fold = styled.div`
+    background: var(--beige);
+    perspective: 1500px;
+    position: relative;
     width: 100%;
-    height: 100%;
-    color: var(--dark-white);
-    margin-top: -3rem;
-
-    > div {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100vw;
-        height: 400px;
-        max-width: 1000px;
-        position: relative;
-        z-index: 0;
-    }
-
-    .step {
-        width: 25px;
-        height: 25px;
-        border 1px solid var(--dark-red);
-        background-color: var(--dark-red);       
-        position: relative;
-        border-radius: 50%;
-    }
-    .step:hover {
-        cursor: pointer;
-    }
-    .step::before,
-    .step::after {
+    height: 0;
+    padding: ${(props) => `${props.ratio}% 0 0`};
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    filter: saturate(70%) contrast(85%);
+    .bottom:after,
+    .front:after {
         content: '';
-        display: block;
+        width: 100%;
+        left: 0;
         position: absolute;
-        z-index: -1;
-        top: 50%;
-        background-color: var(--dark-red);
-        width: 8vw;
-        height: 2px;
     }
 
-    h1, p {
-        visibility:hidden;
-        opacity:0;
-        transition:visibility 0.3s linear,opacity 0.3s linear;
-        width: 200px;
-        font-weight: bold;
-    }
-
-    .step.active {
-        h1, p, .circle, .ringring {
-            visibility: visible;
-            opacity: 1;
-        }
+    .front:after,
+    .bottom:after {
+        height: 150%;
+        top: 0;
+        z-index: 2;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.1) 0.5%,
+                rgba(0, 0, 0, 0.15) 1.2%,
+                transparent 1.2%
+            ),
+            linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.1) 0.5%,
+                rgba(0, 0, 0, 0.15) 1.2%,
+                transparent 1.2%
+            ),
+            linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.1) 0.5%,
+                rgba(0, 0, 0, 0.15) 1.2%,
+                transparent 1.2%
+            ),
+            linear-gradient(265deg, rgba(0, 0, 0, 0.2), transparent 10%),
+            linear-gradient(5deg, rgba(0, 0, 0, 0.2), transparent 15%),
+            linear-gradient(-5deg, rgba(0, 0, 0, 0.1), transparent 10%),
+            linear-gradient(5deg, rgba(0, 0, 0, 0.1), transparent 10%),
+            linear-gradient(-265deg, rgba(0, 0, 0, 0.2), transparent 10%),
+            linear-gradient(-5deg, rgba(0, 0, 0, 0.2), transparent 15%),
+            linear-gradient(266deg, rgba(0, 0, 0, 0.2), transparent 10%);
+        background-size: 50% 100%, 100% 33.3333%, 100% 33.3333%, 50% 33.3333%,
+            50% 33.3333%, 50% 33.3333%, 50% 33.3333%, 50% 33.3333%, 50% 33.3333%,
+            50% 33.3333%;
+        background-position: right top, left center, left bottom, left top,
+            left top, right top, left center, right center, right center,
+            left bottom;
     }
 
     h2 {
-        top: -65px;
-        left: 16px;
-        width: 70px;
-        transform: translateX(-5px) rotateZ(-45deg);
-        font-size: 1rem;
-        color: var(--dark-white);
         position: absolute;
-        font-family: 'Exo', sans-serif;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        margin: 0;
+        color: var(--dark-red);
+        font-family: Shrimp;
+        line-height: 4vmax;
     }
-
-    h1 {
-        color: var(--main-green);
-        font-family: 'Iceland';
-        font-weight: bold;
-        padding-top: 2rem;
-    }
-
-    .circle {
-        visibility: hidden;
-        width: 23px;
-        height: 23px;
-        background-color: var(--dark-green);
-        border-radius: 50%;
+    .top {
+        height: 50%;
+        transition: all 0.5s ease-out;
+        transform: rotateX(0deg);
+        transform-origin: 0 100%;
+        transform-style: preserve-3d;
         position: absolute;
-        top: 1px;
-        left: 1px;
-    }
-    
-    .ringring {
-        visibility: hidden;
-        border: 3px solid var(--main-green);
-        -webkit-border-radius: 30px;
-        height: 25px;
-        width: 25px;
-        position: absolute;
-        -webkit-animation: pulsate 2s ease-out;
-        -webkit-animation-iteration-count: infinite; 
-        opacity: 0.0;
-        top: -3px;
-        left: -3px;
-    }
-
-    @keyframes pulsate {
-        0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
-        50% {opacity: 1.0;}
-        100% {-webkit-transform: scale(1.5, 1.5); opacity: 0.0;}
-    }
-   
-    @media (min-width: 850px) {
-        .step::before {
-            left: -10%;
-        }
-
-        .step::after {
-            right: -10%;
-        }
-    }
-
-    @media (max-width: 850px) {
-        justify-content: initial;
-        .circle, .ringring {
-            display: none;
-        }
-        > div {
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            height: auto;
-            margin-top: 10vh;
-        }
-
-        .step {
-            width: 60px;
-            height: 60px;
-            margin: 0 10px 50px;
-            background-color: var(--dark-red);
-            position: unset;
-        }
-
-        h2 {
-            display: none;
-        }
-        h1 {
-            margin-top: -1rem;
-            margin-left: 1rem;
-            width: 100%;
-        }
-        p {
-            margin-top: 2rem;
+        top: 0px;
+        width: 100%;
+        z-index: 10;
+        .face {
+            backface-visibility: hidden;
             position: absolute;
-            z-index: 5;
-            background: var(--main-black);
-            font-family: 'Exo', sans-serif;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            top: 100%;
-            right: 0;
-            bottom: 0;
-            width: 80%;
         }
-        .step::before,
-        .step::after {
-            content: none;
-        }
+    }
+    &:hover .top {
+        transform: rotateX(-180deg);
+    }
+    .front {
+        background: ${(props) => `url(${props.url})`};
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+    .back {
+        background: var(--beige);
+        height: 100%;
+        transform: rotateX(180deg);
+        width: 100%;
+    }
+    .bottom {
+        background: ${(props) => `url(${props.url})`} bottom;
+        background-size: cover;
+        height: 50%;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    p {
+        padding: 1rem;
+        font-size: 1vmax;
+        font-family: 'Politetype';
+        height: 100%;
+        margin: 0;
+        color: var(--black);
     }
 `;
 const StyledHeading = styled.h1`
-    font-family: 'Iceland', sans-serif;
+    font-family: 'Code', sans-serif;
     font-size: 3rem;
-    text-shadow: 0 0 6px var(--dark-red), 0 0 8px var(--main-red),
-        0 0 0px var(--dark-red), 0 0 3px var(--main-red),
-        0 0 7px var(--dark-red), 0 0 4px var(--main-red);
-    text-align: center;
+    color: var(--black);
 `;
 const Roadmap = () => {
-    const [index, setIndex] = useState(1);
-
-    const handleClick = (i) => {
-        setIndex(i);
-    };
-
+    const sketches = [
+        {
+            img: sketch1,
+            ratio: '70.13',
+            title: 'Community & Mint',
+            text: 'Build a strong and engaged community & mint 8,888 unique Slumlordz’ block NFTs',
+        },
+        {
+            img: sketch2,
+            ratio: '59.34',
+            title: 'Staking',
+            text: 'Immerse into our P2E Game and enjoy renovating your block, purchase new buildings and increase your rent',
+        },
+        {
+            img: sketch3,
+            ratio: '41.17',
+            title: 'Raffles',
+            text: 'The Queen has something special for you, apart from rare buildings you can raffle for blue chip NFTs and WL exclusively with $SLUM',
+        },
+        {
+            img: sketch4,
+            ratio: '56.25',
+            title: 'Sustainability',
+            text: 'We are motivated to create a long-term sustainable P2E ecosystem, SLUM/SOL pair will be added to Raydium and royalties + yield farming will sustain the price',
+        },
+        {
+            img: sketch5,
+            ratio: '75',
+            title: 'PFP and future collectibles',
+            text: 'In order to further ensure sustainability, exclusive further collections including Slumlord PFPs will be minted using $SLUM. Special utility TBA',
+        },
+        {
+            img: sketch6,
+            ratio: '75',
+            title: 'District battles',
+            text: 'In Phase two we will introduce the PVP portion of the game where you will battle other Slumlordz for that precious $SLUM',
+        },
+    ];
     return (
         <Section>
-            <StyledHeading>ROADMAP</StyledHeading>
-
+            <StyledHeading>SLUMLORDZ BLUEPRINT</StyledHeading>
+            <p> We are building a whole new world</p>
             <Timeline>
-                <div>
+                {sketches.map((s) => (
+                    <Fold url={s.img} ratio={s.ratio}>
+                        <h2>{s.title}</h2>
+                        <div class='top'>
+                            <div class='front face'></div>
+                            <div class='back face'>
+                                <p>{s.text}</p>
+                            </div>
+                        </div>
+                        <div class='bottom'></div>
+                    </Fold>
+                ))}
+
+                {/* <div>
                     <div
                         onClick={() => handleClick(1)}
                         className={`step ${1 === index ? 'active' : null}`}
@@ -296,7 +312,7 @@ const Roadmap = () => {
                             <br /> • Networking Opportunities
                         </p>
                     </div>
-                </div>
+                </div> */}
             </Timeline>
         </Section>
     );

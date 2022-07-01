@@ -15,7 +15,18 @@ import MenuStyled, {
 const items = [
     {
         content: (
-            <a href='https://docs.slumlordz.club/introduction/overview' target={'_blank'}>
+            <Link to={'/blueprint'} className='button'>
+                blueprint
+            </Link>
+        ),
+    },
+    {
+        content: (
+            <a
+                className='button'
+                href='https://docs.slumlordz.club/introduction/overview'
+                target={'_blank'}
+            >
                 Docs
             </a>
         ),

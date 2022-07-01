@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import Home from './components/Home';
 import Menu from './components/menu/Menu';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Roadmap from './components/Roadmap';
 
 // import {clusterApiUrl} from '@solana/web3.js';
 // import {WalletAdapterNetwork} from '@solana/wallet-adapter-base';
@@ -45,6 +46,9 @@ const App = () => {
                 <Menu isMobile={useDeviceDetect()} />
                 <Routes>
                     <Route path='/' element={<Home />} />
+                </Routes>
+                <Routes>
+                    <Route path='/blueprint' element={<Roadmap />} />
                 </Routes>
             </Router>
         </>
