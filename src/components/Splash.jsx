@@ -47,7 +47,7 @@ const Splash = styled.div`
 
     .stage {
         overflow: hidden;
-        height: 50%;
+        height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -208,7 +208,7 @@ const SplashScreen = () => {
                     <span>SLUMLORDZ</span>
                 </Slide>
 
-                <SubHeading>SHOWCASE</SubHeading>
+                <SubHeading>BUILDING SHOWCASE</SubHeading>
                 <div class='stage'>
                     <div class='container'>
                         <div class='ring'>
