@@ -9,13 +9,12 @@ import sketch4 from '../assets/images/sketch4.jpg';
 import sketch5 from '../assets/images/sketch5.jpg';
 import sketch6 from '../assets/images/sketch6.jpg';
 
-const Section = styled.div`
-    padding: 4rem;
-    height: 100vh;
-    background: var(--beige);
-`;
+const Section = styled.div``;
 
 const Timeline = styled.div`
+    height: auto;
+    min-height: 80vh;
+    border: 10px solid var(--beige);
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10px;
@@ -25,6 +24,9 @@ const Timeline = styled.div`
     background-image: url(${cork});
     background-color: var(--dark-brown);
     background-blend-mode: multiply;
+    @media screen and (max-width: 801px) {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 `;
 
 const Fold = styled.div`
@@ -192,8 +194,6 @@ const Roadmap = () => {
     ];
     return (
         <Section>
-            <StyledHeading>SLUMLORDZ BLUEPRINT</StyledHeading>
-            <p> We are building a whole new world</p>
             <Timeline>
                 {sketches.map((s) => (
                     <Fold url={s.img} ratio={s.ratio}>
@@ -207,112 +207,6 @@ const Roadmap = () => {
                         <div class='bottom'></div>
                     </Fold>
                 ))}
-
-                {/* <div>
-                    <div
-                        onClick={() => handleClick(1)}
-                        className={`step ${1 === index ? 'active' : null}`}
-                    >
-                        <h2> Community </h2>
-
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>01</h1>
-                        <p>Build a strong and engaged community</p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(2)}
-                        className={`step ${2 === index ? 'active' : null}`}
-                    >
-                        <h2> Mint </h2>
-
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>02</h1>
-                        <p>Mint 8,888 unique Slumlordz’ block NFTs</p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(3)}
-                        className={`step ${3 === index ? 'active' : null}`}
-                    >
-                        <h2> Staking </h2>
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>03</h1>
-                        <p>
-                            Launch P2E Game
-                            <br />
-                            • Block NFT Staking
-                            <br />
-                            • Building Decay
-                            <br />
-                            • Building Repair
-                            <br />• Black Market Purchases
-                        </p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(4)}
-                        className={`step ${4 === index ? 'active' : null}`}
-                    >
-                        <h2> Raffles </h2>
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>04</h1>
-                        <p>
-                            $SLUM Raffle <br />• Blue Chip NFTs <br />•
-                            Whitelist Spots <br />• Slumlordz’ Assets
-                        </p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(5)}
-                        className={`step ${5 === index ? 'active' : null}`}
-                    >
-                        <h2> Sustainability </h2>
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>05</h1>
-                        <p>SLUM/SOL pair on Raydium</p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(6)}
-                        className={`step ${6 === index ? 'active' : null}`}
-                    >
-                        <h2> PFP </h2>
-
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>06</h1>
-                        <p>
-                            Launch Slumlordz’ PFP Collection
-                            <br /> Exclusive SLUM mint
-                        </p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(7)}
-                        className={`step ${7 === index ? 'active' : null}`}
-                    >
-                        <h2>PFP Utility</h2>
-
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>07</h1>
-                        <p>Integrate exclusive Slumlord NFT utility</p>
-                    </div>
-                    <div
-                        onClick={() => handleClick(8)}
-                        className={`step ${8 === index ? 'active' : null}`}
-                    >
-                        <h2> DAO </h2>
-
-                        <div class='ringring'></div>
-                        <div class='circle'></div>
-                        <h1>08</h1>
-                        <p>
-                            • Exclusive Whitelists <br />• NFT Research
-                            <br /> • Networking Opportunities
-                        </p>
-                    </div>
-                </div> */}
             </Timeline>
         </Section>
     );
