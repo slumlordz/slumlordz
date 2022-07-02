@@ -15,6 +15,20 @@ import MenuStyled, {
 const items = [
     {
         content: (
+            <Link to={'/'} className='button disabled'>
+                demo
+            </Link>
+        ),
+    },
+    {
+        content: (
+            <Link to={'/'} className='button disabled'>
+                team
+            </Link>
+        ),
+    },
+    {
+        content: (
             <Link to={'/blueprint'} className='button'>
                 blueprint
             </Link>

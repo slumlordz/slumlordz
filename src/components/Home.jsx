@@ -4,6 +4,7 @@ import {useEffect} from 'react';
 import queen from '../assets/images/QUEEN_hm.png';
 import nft from '../assets/images/nft.png';
 import show from '../assets/images/show.png';
+import gas from '../assets/images/gas.gif';
 
 import block from '../assets/images/block.png';
 import b2 from '../assets/images/b2.png';
@@ -13,20 +14,21 @@ const MainHome = styled.div`
     box-shadow: inset 0 -6px 49px 2px var(--blue), inset 0 1px 17px var(--blue),
         inset 0 1px 74px var(--blue);
     background-color: var(--beige);
-    display: flex;
-    justify-content: space-between;
-    padding: 4vmin 10vmin;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12vmax;
+    padding: 4vmin 15vmin 4vmin 6vmin;
     height: calc(100vh - 100px - 8vmin);
     @media screen and (max-width: 801px) {
-        display: block;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
     }
 `;
 
 const Left = styled.div`
     text-align: right;
     line-height: 1;
-    flex: 1;
-    margin-right: 20vmin;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,6 +48,9 @@ const Left = styled.div`
         -webkit-font-smoothing: antialiased;
         font-family: 'Code Italic', sans-serif;
         margin: 0;
+        @media screen and (max-width: 801px) {
+            text-align: center;
+        }
     }
 
     .inline {
@@ -174,6 +179,9 @@ const Left = styled.div`
         &.five {
             font-size: 2vw;
         }
+        @media screen and (max-width: 801px) {
+            display: none;
+        }
     }
 `;
 
@@ -181,17 +189,11 @@ const Right = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transform-style: preserve-3d;
+    align-items: center;
     position: relative;
-    flex: 1;
-
-    .container {
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
+    @media screen and (max-width: 801px) {
+        height: 60%;
     }
     input[type='radio'] {
         display: none;
@@ -207,9 +209,10 @@ const Right = styled.div`
     }
     .cards {
         position: relative;
-        width: 100%;
-        height: 100%;
-        margin-bottom: 20px;
+        width: 80%;
+        height: 80%;
+        display: flex;
+        align-items: center;
     }
 
     img {
@@ -247,14 +250,17 @@ const Right = styled.div`
 
     &:before {
         content: '';
-        width: 90%;
+        width: 100%;
         height: 100%;
         border: 2px solid var(--black);
         position: absolute;
-        padding: 3rem;
+        padding: 1rem;
         transform: rotate(10deg) skew(2deg, -2deg);
-        top: -3rem;
+        top: 0;
         left: -2rem;
+        @media screen and (max-width: 801px) {
+            display: none;
+        }
     }
 `;
 
@@ -315,21 +321,24 @@ const HomePage = (props) => {
                     <p className='five'>lordz</p>
                 </Left>
                 <Right>
-                    <div class='container'>
-                        <input type='radio' name='slider' id='item-1' checked />
-                        <input type='radio' name='slider' id='item-2' />
-                        <input type='radio' name='slider' id='item-3' />
-                        <div class='cards'>
-                            <label class='card' for='item-1' id='song-1'>
-                                <img src={nft} alt='song' />
-                            </label>
-                            <label class='card' for='item-2' id='song-2'>
-                                <img src={queen} alt='song' />
-                            </label>
-                            <label class='card' for='item-3' id='song-3'>
-                                <img src={show} alt='song' />
-                            </label>
-                        </div>
+                    <input
+                        type='radio'
+                        name='slider'
+                        id='item-1'
+                        defaultChecked
+                    />
+                    <input type='radio' name='slider' id='item-2' />
+                    <input type='radio' name='slider' id='item-3' />
+                    <div class='cards'>
+                        <label class='card' for='item-1' id='song-1'>
+                            <img src={nft} alt='song' />
+                        </label>
+                        <label class='card' for='item-2' id='song-2'>
+                            <img src={queen} alt='song' />
+                        </label>
+                        <label class='card' for='item-3' id='song-3'>
+                            <img src={gas} alt='song' />
+                        </label>
                     </div>
                 </Right>
             </MainHome>
