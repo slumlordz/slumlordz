@@ -8,7 +8,7 @@ import sketch3 from '../assets/images/sketch3.jpg';
 import sketch4 from '../assets/images/sketch4.jpg';
 import sketch5 from '../assets/images/sketch5.jpg';
 import sketch6 from '../assets/images/sketch6.jpg';
-
+import {Footer} from './Splash';
 const Section = styled.div``;
 
 const Timeline = styled.div`
@@ -32,7 +32,6 @@ const Timeline = styled.div`
 const Fold = styled.div`
     background: var(--beige);
     perspective: 1500px;
-    position: relative;
     width: 100%;
     height: 0;
     padding: ${(props) => `${props.ratio}% 0 0`};
@@ -121,6 +120,17 @@ const Fold = styled.div`
         background-size: cover;
         height: 100%;
         width: 100%;
+        .pin {
+            background-image: radial-gradient(var(--dark-red) 50%, black 100%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 0.3rem auto;
+            z-index: 20;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
     }
     .back {
         background: var(--beige);
@@ -140,24 +150,24 @@ const Fold = styled.div`
     }
 
     p {
-        padding: 1rem;
-        font-size: 1vmax;
+        padding: 0 1rem;
+        font-size: 2vmin;
         font-family: 'Politetype';
-        height: 100%;
         margin: 0;
         color: var(--black);
+        position: absolute;
+        top: -1rem;
+        @media screen and (max-width: 601px) {
+            font-size: 2vmax;
+        }
     }
 `;
-const StyledHeading = styled.h1`
-    font-family: 'Code', sans-serif;
-    font-size: 3rem;
-    color: var(--black);
-`;
+
 const Roadmap = () => {
     const sketches = [
         {
-            img: sketch1,
-            ratio: '70.13',
+            img: sketch3,
+            ratio: '41.17',
             title: 'Community & Mint',
             text: 'Build a strong and engaged community & mint 8,888 unique Slumlordz’ block NFTs',
         },
@@ -168,20 +178,20 @@ const Roadmap = () => {
             text: 'Immerse into our P2E Game and enjoy renovating your block, purchase new buildings and increase your rent',
         },
         {
-            img: sketch3,
-            ratio: '41.17',
+            img: sketch1,
+            ratio: '70.13',
             title: 'Raffles',
             text: 'The Queen has something special for you, apart from rare buildings you can raffle for blue chip NFTs and WL exclusively with $SLUM',
         },
         {
-            img: sketch4,
-            ratio: '56.25',
+            img: sketch5,
+            ratio: '75',
             title: 'Sustainability',
             text: 'We are motivated to create a long-term sustainable P2E ecosystem, SLUM/SOL pair will be added to Raydium and royalties + yield farming will sustain the price',
         },
         {
-            img: sketch5,
-            ratio: '75',
+            img: sketch4,
+            ratio: '56.25',
             title: 'PFP and future collectibles',
             text: 'In order to further ensure sustainability, exclusive further collections including Slumlord PFPs will be minted using $SLUM. Special utility TBA',
         },
@@ -193,22 +203,27 @@ const Roadmap = () => {
         },
     ];
     return (
-        <Section>
-            <Timeline>
-                {sketches.map((s) => (
-                    <Fold url={s.img} ratio={s.ratio}>
-                        <h2>{s.title}</h2>
-                        <div class='top'>
-                            <div class='front face'></div>
-                            <div class='back face'>
-                                <p>{s.text}</p>
+        <>
+            <Section>
+                <Timeline>
+                    {sketches.map((s) => (
+                        <Fold url={s.img} ratio={s.ratio}>
+                            <h2>{s.title}</h2>
+                            <div class='top'>
+                                <div class='front face'>
+                                    <div class='pin'></div>
+                                </div>
+                                <div class='back face'>
+                                    <p>{s.text}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class='bottom'></div>
-                    </Fold>
-                ))}
-            </Timeline>
-        </Section>
+                            <div class='bottom'></div>
+                        </Fold>
+                    ))}
+                </Timeline>
+            </Section>
+            <Footer>© 2022, Slumlordz, We are all gonna slum it!</Footer>
+        </>
     );
 };
 export default Roadmap;

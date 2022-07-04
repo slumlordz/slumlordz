@@ -15,6 +15,7 @@ const MenuTrigger = styled.div`
     align-items: center;
     height: 50px;
     background: var(--brown);
+    cursor: pointer;
     span {
         display: flex;
         width: 30px;
@@ -54,20 +55,25 @@ const MenuTrigger = styled.div`
 `;
 
 const MenuNav = styled.nav`
+    min-height: 80px;
+    font-size: 12px;
+    margin-top: 20px;
+    background: var(--beige);
+
+    .logo-mobile {
+        width: 140px;
+        height: auto;
+        margin: 0.2rem 1rem;
+        display: none;
+    }
     @media screen and (max-width: 600px) {
         height: 65px;
         padding: 0;
         display: flex;
         align-items: center;
-    }
-    min-height: 80px;
-    font-size: 12px;
-    margin-top: 20px;
-    background: var(--beige);
-    .logo-mobile {
-        width: 140px;
-        height: auto;
-        margin: 0.2rem 1rem;
+        .logo-mobile {
+            display: block;
+        }
     }
 `;
 
@@ -94,6 +100,11 @@ const MenuItem = styled.div(
                 background-color: var(--brown);
                 outline-color: rgba(255, 255, 255, 0);
                 outline-offset: 15px;
+            }
+            &.disabled {
+                pointer-events: none;
+                cursor: not-allowed;
+                opacity: 0.5;
             }
         }
         img {
@@ -156,8 +167,8 @@ const MenuStyled = styled.div`
         justify-content: center;
         align-items: center;
         top: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         transform-origin: 0% 0%;
         transform: translate(100%, 0);
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);

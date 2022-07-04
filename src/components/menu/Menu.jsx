@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Link, useLocation} from 'react-router-dom';
 import twitter from '../../assets/images/twitter.png';
 import discord from '../../assets/images/discord.png';
 import logo from '../../assets/images/logo3.png';
@@ -68,6 +68,11 @@ const Menu = (props) => {
     const {isMobile} = props;
     const [toggled, setToggled] = useState(false);
     const toggleClass = toggled ? 'toggled' : '';
+    const {pathname} = useLocation();
+
+    useEffect(() => {
+        setToggled(false);
+    }, [pathname]);
 
     return (
         <MenuNav isMobile={isMobile}>
@@ -93,6 +98,9 @@ const Menu = (props) => {
                     })}
                 </StyledDiv>
             </MenuStyled>
+            <Link to={'/'}>
+                <img className='logo-mobile' src={logo} />
+            </Link>
         </MenuNav>
     );
 };

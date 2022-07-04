@@ -32,9 +32,12 @@ const Splash = styled.div`
     width: 100vw;
     height: calc(100vh - 150px);
     background-image: url(${slogan});
+    @media screen and (max-width: 600px) {
+        background-image: none;
+    }
     background-color: #0c0d0a;
     background-blend-mode: multiply;
-
+    position: relative;
     .ring,
     .img,
     img {
@@ -47,7 +50,7 @@ const Splash = styled.div`
 
     .stage {
         overflow: hidden;
-        height: 50%;
+        height: 70%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -59,7 +62,7 @@ const Splash = styled.div`
         width: 300px;
         height: 400px;
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -50%);
         position: absolute;
     }
 `;
@@ -69,11 +72,11 @@ const SubHeading = styled.h2`
     color: var(--white);
     font-size: 3rem;
     animation: glitch 2s linear infinite;
-    margin: 3rem;
+    margin: 4rem 3rem 3rem;
     text-align: center;
 `;
 
-const Footer = styled.div`
+export const Footer = styled.div`
     background-color: var(--black);
     width: 100%;
     height: 15vmin;
@@ -91,6 +94,9 @@ const Footer = styled.div`
 const Slide = styled.div`
     width: 2500px;
     height: 3vmin;
+    @media screen and (max-width: 600px) {
+        height: 6vmin;
+    }
     padding-bottom: 5px;
     color: var(--green);
     font-family: 'Code';

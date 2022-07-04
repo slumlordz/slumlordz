@@ -22,7 +22,8 @@ const MainHome = styled.div`
     @media screen and (max-width: 801px) {
         display: flex;
         flex-direction: column-reverse;
-        justify-content: center;
+        justify-content: flex-end;
+        padding: 4vmin;
     }
 `;
 
@@ -41,7 +42,7 @@ const Left = styled.div`
         display: inline;
         background-position-y: 60%;
         color: transparent;
-        font-size: 12vw;
+        font-size: 12vmax;
         text-transform: uppercase;
         font-weight: 800;
         text-shadow: -5px -8px 0px black;
@@ -72,7 +73,7 @@ const Left = styled.div`
             margin-left: 0;
             margin-right: 0;
             text-align: center;
-            top: -1.5rem;
+            top: -3rem;
         }
 
         &:hover {
@@ -96,7 +97,7 @@ const Left = styled.div`
             margin-left: 0;
             margin-right: 0;
             text-align: center;
-            top: -1.5rem;
+            top: -3rem;
         }
 
         &:hover {
@@ -120,7 +121,7 @@ const Left = styled.div`
             margin-left: 0;
             margin-right: 0;
             text-align: center;
-            top: -1.5rem;
+            top: -3rem;
         }
 
         &:hover {
@@ -144,7 +145,7 @@ const Left = styled.div`
             margin-left: 0;
             margin-right: 0;
             text-align: center;
-            top: -1.5rem;
+            top: -3rem;
         }
 
         &:hover {
@@ -270,7 +271,7 @@ const StyledP = styled.div`
     background-size: auto;
     background-position: center;
     background-blend-mode: soft-light;
-    padding: 2rem;
+    padding: 3rem 2rem;
 
     h1 {
         font-size: 3rem;
