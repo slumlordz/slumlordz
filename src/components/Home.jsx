@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import {useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 import queen from '../assets/images/QUEEN_hm.png';
 import nft from '../assets/images/nft.png';
 import show from '../assets/images/show.png';
 import gas from '../assets/images/gas.gif';
+import twitter from '../assets/images/twitter.png';
 
 import block from '../assets/images/block.png';
 import b2 from '../assets/images/b2.png';
@@ -332,6 +334,55 @@ const StyledP = styled.div`
     }
 `;
 
+const CallToAction = styled.div`
+    position: fixed;
+    bottom: 12%;
+    z-index: 10;
+    right: 0%;
+    background-color: var(--dark-green);
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    font-family: shrimp;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 30px;
+        height: auto;
+        border: 1px solid var(--beige);
+        background: var(--beige);
+        border-radius: 4px;
+        padding: 0.2rem;
+        margin-left: 8px;
+    }
+`;
+
+const CallToAction2 = styled.div`
+    position: fixed;
+    bottom: 5%;
+    z-index: 10;
+    right: 0%;
+    background-color: var(--dark-red);
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    font-family: shrimp;
+    display: flex;
+    align-items: center;
+
+    a {
+        width: auto;
+        height: 30px;
+        background: var(--dark-brown);
+        border-radius: 4px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--dark-green);
+        padding: 0.2rem;
+        line-height: 2rem;
+        margin-left: 8px;
+    }
+`;
+
 const HomePage = (props) => {
     // const {
     //     candyMachineId,
@@ -350,6 +401,23 @@ const HomePage = (props) => {
             {/* <ObjectWrapper /> */}
             <MainHome>
                 <div class='arrow'></div>
+                <CallToAction>
+                    {' '}
+                    You're early →
+                    <a
+                        href='https://twitter.com/Slumlordz_NFT'
+                        target={'_blank'}
+                    >
+                        <img alt='' src={twitter} />
+                    </a>
+                </CallToAction>
+                <CallToAction2>
+                    {' '}
+                    Read our roadmap →
+                    <Link to={'/blueprint'} className='button'>
+                        blueprint
+                    </Link>
+                </CallToAction2>
                 <Left>
                     <div className='inline'>
                         <div className='slum-text-s'>S</div>
