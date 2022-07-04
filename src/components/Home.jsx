@@ -19,11 +19,52 @@ const MainHome = styled.div`
     gap: 12vmax;
     padding: 4vmin 15vmin 4vmin 6vmin;
     height: calc(100vh - 100px - 8vmin);
+    position: relative;
     @media screen and (max-width: 801px) {
         display: flex;
         flex-direction: column-reverse;
         justify-content: flex-end;
         padding: 4vmin;
+    }
+    .arrow,
+    .arrow:before {
+        position: absolute;
+        left: 50%;
+    }
+    .arrow {
+        width: 40px;
+        height: 40px;
+        bottom: 8%;
+        left: 5%;
+        -webkit-transform: rotate(45deg);
+        border-left: none;
+        border-top: none;
+        border-right: 3px var(--dark-green) solid;
+        border-bottom: 3px #fff solid;
+    }
+
+    .arrow:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        margin: -10px 0 0 -10px;
+        border-left: none;
+        border-top: none;
+        border-right: 2px var(--dark-green) solid;
+        border-bottom: 2px #fff solid;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-name: arrow;
+    }
+    @keyframes arrow {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: translate(-10px, -10px);
+        }
     }
 `;
 
@@ -308,6 +349,7 @@ const HomePage = (props) => {
         <>
             {/* <ObjectWrapper /> */}
             <MainHome>
+                <div class='arrow'></div>
                 <Left>
                     <div className='inline'>
                         <div className='slum-text-s'>S</div>
