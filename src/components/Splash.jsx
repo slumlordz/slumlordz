@@ -62,7 +62,7 @@ const Splash = styled.div`
         width: 300px;
         height: 400px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -10%);
         position: absolute;
     }
 `;
