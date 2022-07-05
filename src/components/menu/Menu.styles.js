@@ -61,9 +61,9 @@ const MenuNav = styled.nav`
     background: var(--beige);
 
     .logo-mobile {
-        width: 140px;
+        width: 60px;
         height: auto;
-        margin: 0.2rem 1rem;
+        margin: 0.1rem 0.5rem;
         display: none;
     }
     @media screen and (max-width: 600px) {
@@ -195,8 +195,9 @@ const MenuStyled = styled.div`
     z-index: 8;
 
     .logo {
-        width: 140px;
+        width: 70px;
         height: auto;
+        margin: 0.5rem;
     }
 `;
 

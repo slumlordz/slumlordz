@@ -91,11 +91,15 @@ const Fold = styled.div`
         top: 0;
         left: 0;
         right: 0;
-        padding: 1rem;
+        padding: 0 1rem;
         margin: 0;
         color: var(--dark-red);
         font-family: Shrimp;
-        line-height: 4vmax;
+        display: flex;
+        align-items: center;
+        height: 50%;
+        justify-content: center;
+        text-align: center;
     }
     .top {
         height: 50%;
@@ -151,12 +155,15 @@ const Fold = styled.div`
 
     p {
         padding: 0 1rem;
-        font-size: 2vmin;
+        font-size: 2.5vmin;
         font-family: 'Politetype';
         margin: 0;
         color: var(--black);
         position: absolute;
-        top: -1rem;
+        text-align: center;
+        display: flex;
+        align-items: flex-start;
+        height: 80%;
         @media screen and (max-width: 601px) {
             font-size: 2vmax;
         }

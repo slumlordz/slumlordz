@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import twitter from '../../assets/images/twitter.png';
 import discord from '../../assets/images/discord.png';
-import logo from '../../assets/images/logo3.png';
+import logo from '../../assets/images/logo.png';
 
 import MenuStyled, {
     MenuNav,

@@ -336,11 +336,11 @@ const StyledP = styled.div`
 
 const CallToAction = styled.div`
     position: fixed;
-    bottom: 12%;
+    bottom: 20%;
     z-index: 10;
-    right: 0%;
-    background-color: var(--dark-green);
-    padding: 0.5rem 1rem;
+    left: 0%;
+    background-color: #47773a9e;
+    padding: 0.5rem;
     color: var(--white);
     font-family: shrimp;
     display: flex;
@@ -359,11 +359,11 @@ const CallToAction = styled.div`
 
 const CallToAction2 = styled.div`
     position: fixed;
-    bottom: 5%;
+    bottom: 13%;
     z-index: 10;
-    right: 0%;
-    background-color: var(--dark-red);
-    padding: 0.5rem 1rem;
+    left: 0%;
+    background-color: #420c01ad;
+    padding: 0.5rem;
     color: var(--white);
     font-family: shrimp;
     display: flex;
@@ -372,7 +372,7 @@ const CallToAction2 = styled.div`
     a {
         width: auto;
         height: 30px;
-        background: var(--dark-brown);
+        background: var(--dark-red);
         border-radius: 4px;
         text-decoration: none;
         text-transform: uppercase;
@@ -413,7 +413,7 @@ const HomePage = (props) => {
                 </CallToAction>
                 <CallToAction2>
                     {' '}
-                    Read our roadmap →
+                    Read our →
                     <Link to={'/blueprint'} className='button'>
                         blueprint
                     </Link>
