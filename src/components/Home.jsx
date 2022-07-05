@@ -242,7 +242,33 @@ const Right = styled.div`
     input[type='radio'] {
         display: none;
     }
+    .arrow-left {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 50%;
+        z-index: 20;
+        left: 0;
+        -webkit-transform: rotate(135deg);
+        border-left: none;
+        border-top: none;
+        border-right: 4px var(--dark-red) solid;
+        border-bottom: 4px #fff solid;
+    }
 
+    .arrow-right {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 50%;
+        z-index: 20;
+        right: 0;
+        -webkit-transform: rotate(-45deg);
+        border-left: none;
+        border-top: none;
+        border-right: 4px var(--dark-red) solid;
+        border-bottom: 4px #fff solid;
+    }
     .card {
         position: absolute;
         left: 0;
@@ -432,6 +458,8 @@ const HomePage = (props) => {
                     <p className='five'>lordz</p>
                 </Left>
                 <Right>
+                    <div class='arrow-left'></div>
+
                     <input
                         type='radio'
                         name='slider'
@@ -451,6 +479,7 @@ const HomePage = (props) => {
                             <img src={gas} alt='song' />
                         </label>
                     </div>
+                    <div class='arrow-right'></div>
                 </Right>
             </MainHome>
             <StyledP>

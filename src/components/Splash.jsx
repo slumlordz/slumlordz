@@ -71,7 +71,6 @@ const SubHeading = styled.h2`
     font-family: 'Shrimp';
     color: var(--white);
     font-size: 3rem;
-    animation: glitch 2s linear infinite;
     margin: 4rem 3rem 3rem;
     text-align: center;
 `;
@@ -116,6 +115,28 @@ const Slide = styled.div`
         }
         100% {
             transform: translateX(-233px);
+        }
+    }
+`;
+
+const TextReveal = styled.div`
+    font-family: Politetype;
+    color: var(--white);
+    font-size: 1rem;
+    animation: reveal 7s infinite;
+    text-align: center;
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
         }
     }
 `;
@@ -215,6 +236,8 @@ const SplashScreen = () => {
                 </Slide>
 
                 <SubHeading>BUILDING SHOWCASE</SubHeading>
+                <TextReveal>Click and drag the carousel below </TextReveal>
+
                 <div class='stage'>
                     <div class='container'>
                         <div class='ring'>
