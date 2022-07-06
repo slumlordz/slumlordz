@@ -38,7 +38,7 @@ const items = [
         content: (
             <a
                 className='button'
-                href='https://docs.slumlordz.club/introduction/overview'
+                href='https://slum-lordz.gitbook.io/docs/'
                 target={'_blank'}
             >
                 Docs
